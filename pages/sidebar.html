@@ -1,0 +1,76 @@
+<header class="md-tall md-hue-2 overflowHidden nav-header sidebar">
+    <span flex></span>
+    <div layout="column" class="md-toolbar-tools-bottom inset">
+        <img src="/img/profilePic.jpg" alt="" class="profilePic" />
+
+        <span class="md-headline">
+            Taiwei Tuan
+        </span>
+        <span class="md-title italic">
+            Web Specialist<br />
+            Software Developer
+        </span>
+        <span class="ta-left sd-info">
+            <i class="fa fa-home"></i> Chicago, Illinois<br />
+            <i class="fa fa-envelope-o"></i> taiweituan@gmail.com
+        </span>
+    </div>
+</header>
+
+<md-list class="sidemenu-list" style="padding-top:0;">
+    <md-divider></md-divider>
+    <md-subheader>Main Menu</md-subheader>
+    <md-divider></md-divider>
+    <md-item ng-repeat="item in menu">
+
+        <a href="{{item.link}}">
+            <md-button style="width:100%;"
+                       ng-click="selectSidemenu(item);"
+                       ng-class="{'selected' : item === selected}">
+                <md-item-content md-ink-ripple layout="row"
+                                 layout-align="start center">
+                    <div class="inset">
+                        <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                    </div>
+                    <div class="inset">
+                        {{item.name}}
+                    </div>
+                </md-item-content>
+            </md-button>
+        </a>
+    </md-item>
+    <md-divider></md-divider>
+    <md-subheader>More</md-subheader>
+
+    <!--<ul class="nav sidebar-nav">
+        <li class="dropdown">
+            <a class="ripple-effect dropdown-toggle" href="#" data-toggle="dropdown">
+                All Mail
+                <b class="caret"></b>
+            </a>
+            <ul id="settings-dropdown" class="dropdown-menu">
+                <li>
+                    <a href="#" tabindex="-1">
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Help
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Exit
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>-->
+
+</md-list>

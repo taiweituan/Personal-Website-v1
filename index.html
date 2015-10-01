@@ -1,0 +1,86 @@
+<html lang="en" ng-app="MainApp">
+<head>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <link href="css/StyleSheet.css" rel="stylesheet" />
+    <meta name="viewport" content="initial-scale=1" />
+
+    <!-- disable cache -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <title ng-bind="title"></title>
+</head>
+
+<body layout="row" ng-controller="AppCtrl">
+    <!-- left -->
+    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+        <div ng-include="'pages/sidebar.html'"></div>
+    </md-sidenav>
+
+    <!-- right -->
+    <div layout="column" flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools inner-toolbar">
+                <!-- side menu button when for mobile view -->
+                <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+                    <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
+                </md-button>
+                <span class="md-headline" ng-bind="title"> title </span>
+                <span flex></span>
+                <!-- Icons on menu -->
+                <div hide-sm>
+                    <a href="https://github.com/taiweituan">
+                        <md-button class="md-icon-button md-primary"
+                                   aria-label="Settings"
+                                   style="color:white;"
+                                   ng-click>
+                            <i class="fa fa-github fa-2x"></i>
+                            <md-tooltip>
+                                GitHub
+                            </md-tooltip>
+                        </md-button>
+                    </a>
+                    <a href="http://stackoverflow.com/users/4549166/duandai">
+                        <md-button class="md-icon-button md-primary"
+                                   aria-label="Settings"
+                                   style="color:white;">
+                            <i class="fa fa-stack-overflow fa-2x"></i>
+                            <md-tooltip>
+                                Stack Overflow
+                            </md-tooltip>
+                        </md-button>
+                    </a>
+                    <a href="https://www.linkedin.com/pub/taiwei-tuan/6b/150/631">
+                        <md-button class="md-icon-button md-primary" aria-label="Settings" style="color:white;">
+                            <i class="fa fa-linkedin fa-2x"></i>
+                            <md-tooltip>
+                                LinkedIn
+                            </md-tooltip>
+                        </md-button>
+                    </a>
+                </div>
+            </div>
+        </md-toolbar>
+
+        <md-content layout-padding flex md-scroll-y class="">
+            <!--style="max-width:1000px;"-->
+            <div class="inner-content md-padding">
+                <ng-view></ng-view>
+            </div>
+        </md-content>
+    </div>
+
+    <!-- Angular Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
+    <!-- Angular Material Javascript now available via Google CDN; version 0.10 used here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.0/angular-material.min.js"></script>
+    <script src="JavaScript.js"></script>
+</body>
+</html>
