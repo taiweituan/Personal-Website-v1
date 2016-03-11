@@ -1,0 +1,112 @@
+﻿<!--
+    Interface Excise from SpringCM given by Keith
+
+    Page created by Taiwei Tuan
+    Date: 3/11/16
+
+    Framework used: AngularJS
+
+     -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SprintCM</title>
+
+    <link href="src/css/SpringCM.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="MainApp">
+    <div class="body-content" ng-controller="MainController">
+        <h2>Sample Folder</h2>
+        <div class="section">
+            <div class="tableSection">
+                <table class="gridDataTbl">
+                    <thead>
+                        <tr>
+                            <!--<th ng-click="sortType='Name'; sortReverse = !sortReverse">Name</th>
+                            <th ng-click="sortType='Description'; sortReverse = !sortReverse">Description</th>
+                            <th ng-click="sortType='ModifiedDate'; sortReverse = !sortReverse">Modified</th>-->
+                            <th ng-click="sortTable('Name')">
+                                Name
+                                <img class="asc_des_arrow"
+                                     src="src/img/left_arrow.png"
+                                     ng-show="sortType==='Name'"
+                                     ng-class="{active:sortReverse}" />
+                            </th>
+                            <th ng-click="sortTable('Description')">
+                                Description
+                                <img class="asc_des_arrow"
+                                     src="src/img/left_arrow.png"
+                                     ng-show="sortType==='Description'"
+                                     ng-class="{active:sortReverse}" />
+                            </th>
+                            <th ng-click="sortTable('ModifiedDate')">
+                                Modified
+                                <img class="asc_des_arrow"
+                                     src="src/img/left_arrow.png"
+                                     ng-show="sortType==='ModifiedDate'"
+                                     ng-class="{active:sortReverse}" />
+                            </th>
+                            <th ng-click="sortTable('Item')">{{gridDataLength}} items</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--  | orderBy:'ModifiedDate' -->
+                        <tr ng-repeat="gridData in gridDataJSON | orderBy:sortType:sortReverse">
+                            <td>
+                                <img class="dataTypeIcon"
+                                     ng-src="src/img/{{getExtension(gridData)}}.png"
+                                     alt="{{gridData.Name}}" />
+                                {{gridData.Name}}
+                            </td>
+                            <td>{{gridData.Description}}</td>
+                            <td>{{gridData.ModifiedDate}}</td>
+                            <td><input type="checkbox" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- end of table.gridDataTbl -->
+            </div><div class="buttonSection" ng-class="{active:sidebarExpand}">
+                <div class="actionButtons">
+                    <ul class="firstUl">
+                        <li class="firstLi" ng-repeat="buttonAry in actionButtonAry">
+                            <ul ng-repeat="button in buttonAry">
+                                <li ng-class="{emptyIconColor: button.ImageName==''}">
+                                    <div class="empytIconFiller" ng-if="button.ImageName===''"> </div>
+                                    <img ng-src="src/img/{{button.ImageName}}.png"
+                                         ng-if="button.ImageName!=''"
+                                         alt="{{button.Name}}" />
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><div class="toggleButtonContainer">
+                    <span class="toggleButton"
+                          ng-click="toggleSidebar()"
+                          ng-class="{toggleButtonActive:sidebarExpand}">
+                        <img class="arrow"
+                             ng-class="{active:sidebarExpand}"
+                             src="/src/img/left_arrow.png"
+                             alt="Expand/Shrink" />
+                    </span>
+                </div>
+            </div>
+            <!-- end of .buttonSection -->
+        </div>
+        <!-- end of .section -->
+    </div>
+    <!-- end of .body-content -->
+    <script src="src/js/angular.min.js"></script>
+    <script src="src/js/SprintCM.js"></script>
+</body>
+</html>
